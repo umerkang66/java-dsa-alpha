@@ -6,8 +6,8 @@ public class MaxSubArray {
 
     System.out.println(maxSubArrayBF(nums));
     System.out.println(maxSubArrayPrefixArray(nums));
-    System.out.println(kadane(nums));
-    System.out.println(kadane2(nums));
+    System.out.println(kadaneAlgorithm(nums));
+    System.out.println(kadaneAlgorithm2(nums));
   }
 
   private static int maxSubArrayBF(int[] nums) {
@@ -55,7 +55,7 @@ public class MaxSubArray {
     return maxSum;
   }
 
-  private static int kadane(int[] nums) {
+  private static int kadaneAlgorithm(int[] nums) {
     // if the currentSum is negative, consider it as zero
     // because if integers that are greater than 0 are present in array
     // then only that integers in array will return the highest sum
@@ -73,7 +73,7 @@ public class MaxSubArray {
     return maxSum;
   }
 
-  private static int kadane2(int[] nums) {
+  private static int kadaneAlgorithm2(int[] nums) {
     // current element should join the previous currentSum, if it is contributing to
     // the total sum (currentSum + ith element is greater than ith element:
     // currentSum is non-negative), it will add itself in the previous currentSum,
