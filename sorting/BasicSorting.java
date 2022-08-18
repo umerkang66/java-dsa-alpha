@@ -54,7 +54,6 @@ public class BasicSorting {
     }
   }
 
-  // 4,3,2,1
   private static void insertionSort(int[] nums) {
     // pick an element from unsorted part, and place it at the right position.
     // don't go till last element because, j is "i+1"
@@ -67,7 +66,8 @@ public class BasicSorting {
           swap(nums, j, j - 1);
         } else {
           // if "j" is not smaller than "j-1" it means previous to the "j" elements are
-          // already sorted, so break the inner loop
+          // already sorted, so break the inner loop, because outer loop
+          // has already gone through previous elements
           break;
         }
       }
