@@ -6,7 +6,9 @@ public class AdvancedPatterns {
   private static Scanner scanner = new Scanner(System.in);
 
   public static void main(String[] args) {
+    System.out.print("Enter rows: ");
     int rows = scanner.nextInt();
+    System.out.print("Enter columns: ");
     int cols = scanner.nextInt();
 
     hollowRectangle(rows, cols);
@@ -22,6 +24,8 @@ public class AdvancedPatterns {
     hollowRhombus(rows);
     hollowRhombusSecondSolution(rows);
     diamondPattern(rows);
+    numberPyramid(rows);
+    palindromicPattern(rows);
   }
 
   private static void hollowRectangle(int rows, int cols) {
@@ -338,6 +342,43 @@ public class AdvancedPatterns {
           System.out.print(" ");
         }
       }
+      System.out.println();
+    }
+  }
+
+  private static void numberPyramid(int rows) {
+    for (int i = 1; i <= rows; i++) {
+      for (int j = 1; j <= rows; j++) {
+        if (j < rows - i + 1) {
+          System.out.print(" ");
+        } else {
+          System.out.print(i);
+          if (j < rows) {
+            System.out.print(" ");
+          }
+        }
+      }
+      System.out.println();
+    }
+  }
+
+  private static void palindromicPattern(int rows) {
+    for (int i = 1; i <= rows; i++) {
+      int startCounter = i;
+
+      for (int j = 1; j <= rows + i - 1; j++) {
+        if (j < rows - i + 1) {
+          System.out.print(" ");
+        } else {
+          System.out.print(startCounter);
+          if (j < rows) {
+            startCounter--;
+          } else {
+            startCounter++;
+          }
+        }
+      }
+
       System.out.println();
     }
   }
