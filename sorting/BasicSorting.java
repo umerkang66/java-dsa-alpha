@@ -7,14 +7,18 @@ public class BasicSorting {
     int[] nums = { 5, 3, 9, 12, 8, 1 };
     bubbleSort(nums);
     System.out.println(Arrays.toString(nums));
-
     int[] nums2 = { 5, 3, 9, 12, 8, 1 };
     selectionSort(nums2);
     System.out.println(Arrays.toString(nums2));
-
     int[] nums3 = { 5, 3, 9, 12, 8, 1 };
     insertionSort(nums3);
     System.out.println(Arrays.toString(nums3));
+    int[] nums4 = { 1, 4, 1, 3, 2, 4, 3, 7 };
+    countingSort(nums4);
+    System.out.println(Arrays.toString(nums4));
+    int[] nums5 = { 1, 4, 1, 3, 2, 4, 3, 7 };
+    countingSortDescending(nums5);
+    System.out.println(Arrays.toString(nums5));
   }
 
   private static void bubbleSort(int[] nums) {
@@ -70,6 +74,54 @@ public class BasicSorting {
           // has already gone through previous elements
           break;
         }
+      }
+    }
+  }
+
+  private static void countingSort(int[] nums) {
+    // create a countArr with the length of largest element in nums + 1, with index
+    // as number and its frequency as value
+    int maxNum = nums[0];
+    for (int i = 1; i < nums.length; i++) {
+      maxNum = Math.max(maxNum, nums[i]);
+    }
+
+    // we have to store till largest index, that is length - 1, so increase the
+    // length by 1
+    int[] countArr = new int[maxNum + 1];
+    for (int i = 0; i < nums.length; i++) {
+      // count array is created with every element in nums array as index, and
+      // frequency as its value
+      countArr[nums[i]]++;
+    }
+
+    int originalArrCounter = 0;
+    for (int i = 0; i < countArr.length; i++) {
+      while (countArr[i] > 0) {
+        nums[originalArrCounter] = i;
+        originalArrCounter++;
+        countArr[i]--;
+      }
+    }
+  }
+
+  private static void countingSortDescending(int[] nums) {
+    int largest = nums[0];
+    for (int i = 1; i < nums.length; i++) {
+      largest = Math.max(largest, nums[i]);
+    }
+
+    int[] count = new int[largest + 1];
+    for (int i = 0; i < nums.length; i++) {
+      count[nums[i]]++;
+    }
+
+    int originalArrCounter = 0;
+    for (int i = count.length - 1; i > 0; i--) {
+      while (count[i] > 0) {
+        nums[originalArrCounter] = i;
+        originalArrCounter++;
+        count[i]--;
       }
     }
   }
