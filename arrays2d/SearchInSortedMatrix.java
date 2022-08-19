@@ -17,10 +17,11 @@ public class SearchInSortedMatrix {
   }
 
   public static boolean binarySearchInSortedMatrix(int[][] matrix, int target) {
+    // first find the correct row by binary search, which includes the target, then
+    // apply binary search on that row
     int rowStart = 0;
     int rowEnd = matrix.length - 1;
 
-    // first find the correct row by binary search, which includes
     int correctRow = -1;
     while (rowStart <= rowEnd) {
       int rowMid = rowStart + (rowEnd - rowStart) / 2;
@@ -30,6 +31,7 @@ public class SearchInSortedMatrix {
       } else if (target > matrix[rowMid][matrix[0].length - 1]) {
         rowStart = rowMid + 1;
       } else {
+        // if (target < matrix[rowMid][0])
         rowEnd = rowMid - 1;
       }
     }
