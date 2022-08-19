@@ -1,51 +1,55 @@
-// https://leetcode.com/problems/search-a-2d-matrix-ii
+// https://leetcode.com/problems/search-a-2d-matrix
 package arrays2d;
 
-// O(n+m), if m>>n then O(m), if n>>m then O(n)
 public class SearchInSortedMatrix {
   public static void main(String[] args) {
     int[][] matrix = {
-        { 10, 20, 30, 40 },
-        { 15, 25, 35, 45 },
-        { 27, 29, 37, 48 },
-        { 32, 33, 39, 50 }
+        { 1, 3, 5, 7 },
+        { 10, 11, 16, 20 },
+        { 23, 30, 34, 60 }
     };
-    System.out.println(searchInSortedMatrixWithTopRightKey(matrix, 39));
-    System.out.println(searchInSortedMatrixWithBottomLeftKey(matrix, 39));
+    System.out.println(binarySearchInSortedMatrix(matrix, 30));
+
+    int[][] matrix2 = {
+        { 1 }
+    };
+    System.out.println(binarySearchInSortedMatrix(matrix2, 1));
   }
 
-  // rows are sorted in ascending order, and columns are also sorted in ascending
-  // order, first item of row might not be smaller than last item of previous row
-  private static boolean searchInSortedMatrixWithTopRightKey(int[][] matrix, int target) {
-    // take an element where only two ways are possible, downward, or before, it can
-    // be top-right or bottom-left, we are choosing top-right
-    int row = 0;
-    int col = matrix[0].length - 1;
-    while (row <= matrix.length - 1 && col >= 0) {
-      // if target is bigger move downward, if target is smaller move before
-      if (target < matrix[row][col]) {
-        col--;
-      } else if (target > matrix[row][col]) {
-        row++;
-      } else {
-        return true;
-      }
-    }
-    return false;
-  }
+  public static boolean binarySearchInSortedMatrix(int[][] matrix, int target) {
+    int rowStart = 0;
+    int rowEnd = matrix.length - 1;
 
-  private static boolean searchInSortedMatrixWithBottomLeftKey(int[][] matrix, int target) {
-    int row = matrix.length - 1;
-    int col = 0;
-    while (row >= 0 && col <= matrix[0].length) {
-      if (target < matrix[row][col]) {
-        row--;
-      } else if (target > matrix[row][col]) {
-        col++;
+    // first find the correct row by binary search, which includes
+    int correctRow = -1;
+    while (rowStart <= rowEnd) {
+      int rowMid = rowStart + (rowEnd - rowStart) / 2;
+      if (target >= matrix[rowMid][0] && target <= matrix[rowMid][matrix[0].length - 1]) {
+        correctRow = rowMid;
+        break;
+      } else if (target > matrix[rowMid][matrix[0].length - 1]) {
+        rowStart = rowMid + 1;
       } else {
-        return true;
+        rowEnd = rowMid - 1;
       }
     }
+
+    // if correctRow is found, apply binary search between columns of that row
+    if (correctRow != -1) {
+      int colStart = 0;
+      int colEnd = matrix[0].length - 1;
+      while (colStart <= colEnd) {
+        int colMid = colStart + (colEnd - colStart) / 2;
+        if (target < matrix[correctRow][colMid]) {
+          colEnd = colMid - 1;
+        } else if (target > matrix[correctRow][colMid]) {
+          colStart = colMid + 1;
+        } else {
+          return true;
+        }
+      }
+    }
+
     return false;
   }
 }
