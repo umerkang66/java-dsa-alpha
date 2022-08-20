@@ -19,6 +19,16 @@ public class SearchInSortedMatrix {
   public static boolean binarySearchInSortedMatrix(int[][] matrix, int target) {
     // first find the correct row by binary search, which includes the target, then
     // apply binary search on that row
+    int correctRow = binarySearchRow(matrix, target);
+    if (correctRow == -1) {
+      return false;
+    }
+
+    // if correctRow is found, apply binary search between columns of that row
+    return binarySearchColumn(matrix, correctRow, target);
+  }
+
+  private static int binarySearchRow(int[][] matrix, int target) {
     int rowStart = 0;
     int rowEnd = matrix.length - 1;
 
@@ -36,19 +46,21 @@ public class SearchInSortedMatrix {
       }
     }
 
-    // if correctRow is found, apply binary search between columns of that row
-    if (correctRow != -1) {
-      int colStart = 0;
-      int colEnd = matrix[0].length - 1;
-      while (colStart <= colEnd) {
-        int colMid = colStart + (colEnd - colStart) / 2;
-        if (target < matrix[correctRow][colMid]) {
-          colEnd = colMid - 1;
-        } else if (target > matrix[correctRow][colMid]) {
-          colStart = colMid + 1;
-        } else {
-          return true;
-        }
+    return correctRow;
+  }
+
+  private static boolean binarySearchColumn(int[][] matrix, int correctRow, int target) {
+    int colStart = 0;
+    int colEnd = matrix[0].length - 1;
+
+    while (colStart <= colEnd) {
+      int colMid = colStart + (colEnd - colStart) / 2;
+      if (target < matrix[correctRow][colMid]) {
+        colEnd = colMid - 1;
+      } else if (target > matrix[correctRow][colMid]) {
+        colStart = colMid + 1;
+      } else {
+        return true;
       }
     }
 
