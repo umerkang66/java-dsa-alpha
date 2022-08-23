@@ -19,8 +19,7 @@ public class BuyAndSellStocks {
         // check if this profit is maximum we can have, if it is update it
         maxProfit = Math.max(maxProfit, currentProfit);
       } else {
-        // if buying price is high selling is price is low it means it is best for
-        // buying, we can update it for buying
+        // if buying price is high selling (current price) is price is low it means it is best for buying, we can update it for buying
         buyPrice = nums[i];
       }
     }
