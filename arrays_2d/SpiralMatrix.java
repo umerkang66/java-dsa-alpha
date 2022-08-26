@@ -1,5 +1,5 @@
 // https://leetcode.com/problems/spiral-matrix/
-package arrays2d;
+package arrays_2d;
 
 import java.util.ArrayList;
 
