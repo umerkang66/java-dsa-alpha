@@ -1,4 +1,4 @@
-# Bit Manipulation.
+# <u>Bit Manipulation.</u>
 
 ### AND(&):
 
@@ -21,14 +21,22 @@ Only one should be true.
 -   Anything xor with 0, it will give us the actual number.
 -   If we xor a number with the same number, (now nothing is exclusive), then answer will be zero.
 
-### COMPLEMENT(~):
+### Complement(~):
 
 Returns the complement of number.
 <b>e.g.</b> ~10110 = 01001
 
-# Conversion from decimal to base$_b$.
+### Left Shift Operator.
 
-Keep dividing the decimal by base "b", until the answer is 0, take remainders and write in opposite.
+Shift all the bits to left.
+<b>e.g.</b> 1011 = 10110
 
-Lets take an example of $(17)_{10}$ and convert it to base <b>2</b>.
-Divide it by <b>2</b>, and take the remainders <b>(10001)</b>, now take them in the opposite order (which is similar in this case), <b>(10001)</b>.
+-   Any number << 1 will double the number.
+-   a << b = a $\times 2^b$
+
+### Right Shift Operator.
+
+Shift all the bits to the right. Ignore the most right operators, by how many times you have shifted.
+<b>e.g.</b> 1011 = 0101 = 101
+
+-   a >> b = $\frac{a}{2^b}$
