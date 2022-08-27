@@ -1,5 +1,6 @@
 package bit_manipulation;
 
+// in this whole class "i" is 1 based (not zero based)
 public class Main {
   public static void main(String[] args) {
     int num = 2;
@@ -8,10 +9,15 @@ public class Main {
     int[] nums = { 1, 3, 6, 4, 1, 3, 4 };
     System.out.println(findNumThatExistOneTime(nums));
 
-    int num2 = 12;
-    System.out.println(findIthBit(num2, 2));
+    int num2 = 15;
+    System.out.println(findIthBit(num2, 3));
     System.out.println(setIthBit(num2, 2));
-    System.out.println(resetIthBit(num2, 2));
+    System.out.println(resetIthBit(num2, 3));
+    System.out.println(updateIthBit(num2, 2, 1));
+    System.out.println(clearLastIthBits(num2, 3));
+    System.out.println(clearRangeOfBits(10, 2, 4));
+    System.out.println(isPowerOfTwo(num2));
+    System.out.println(setBitsCount(10));
   }
 
   private static boolean evenOrOdd(int num) {
@@ -58,5 +64,47 @@ public class Main {
     // ith element
     int bitMask = ~(1 << (i - 1));
     return num & bitMask;
+  }
+
+  private static int updateIthBit(int num, int i, int newBit) {
+    if (newBit == 0) {
+      return resetIthBit(num, i);
+    } else {
+      return setIthBit(num, i);
+    }
+  }
+
+  private static int clearLastIthBits(int num, int i) {
+    // (~0) is "-1", -1 in binary is 111111, when this will be leftshift leftshift
+    // by i, this will become 111000
+    int bitMask = (~0) << (i - 1);
+    return num & bitMask;
+  }
+
+  private static int clearRangeOfBits(int num, int i, int j) {
+    int leftBitMask = (~0) << j;
+    int rightBitMask = (1 << i) - 1;
+    int bitMask = leftBitMask | rightBitMask;
+
+    return num & bitMask;
+  }
+
+  private static boolean isPowerOfTwo(int num) {
+    // if a number is power of 2, when it will be & with its previous number,
+    // results in 0.
+    return (num & (num - 1)) == 0;
+  }
+
+  private static int setBitsCount(int num) {
+    int count = 0;
+    while (num > 0) {
+      int lsb = num & 1;
+      if (lsb == 1) {
+        count++;
+      }
+      // shift the lsb, by discarding the previous lsb
+      num >>= 1;
+    }
+    return count;
   }
 }

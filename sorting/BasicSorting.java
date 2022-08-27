@@ -59,7 +59,7 @@ public class BasicSorting {
   }
 
   private static void insertionSort(int[] nums) {
-    // pick an element from unsorted part, and place it at the right position.
+    // pick an element from unsorted part, and place it at the left position.
     // don't go till last element because, j is "i+1"
     for (int i = 0; i < nums.length - 1; i++) {
       // at every index, check if next element to ith element is greater or less than
