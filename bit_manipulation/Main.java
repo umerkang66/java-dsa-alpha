@@ -18,6 +18,7 @@ public class Main {
     System.out.println(clearRangeOfBits(10, 2, 4));
     System.out.println(isPowerOfTwo(num2));
     System.out.println(setBitsCount(10));
+    System.out.println(fastExponentiation(5, 3));
   }
 
   private static boolean evenOrOdd(int num) {
@@ -106,5 +107,18 @@ public class Main {
       num >>= 1;
     }
     return count;
+  }
+
+  private static int fastExponentiation(int num, int power) {
+    int ans = 1;
+    while (power > 0) {
+      int lsb = power & 1;
+      if (lsb != 0) {
+        ans = ans * num;
+      }
+      num = num * num;
+      power = power >> 1;
+    }
+    return ans;
   }
 }
