@@ -1,5 +1,4 @@
 // https://leetcode.com/problems/matrix-diagonal-sum/
-package arrays_2d;
 
 public class DiagonalSum {
   public static void main(String[] args) {

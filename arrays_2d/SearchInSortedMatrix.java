@@ -1,5 +1,4 @@
 // https://leetcode.com/problems/search-a-2d-matrix
-package arrays_2d;
 
 public class SearchInSortedMatrix {
   public static void main(String[] args) {

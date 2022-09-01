@@ -1,5 +1,3 @@
-package arrays_2d;
-
 public class Transpose {
   public static void main(String[] args) {
     int[][] matrix = {

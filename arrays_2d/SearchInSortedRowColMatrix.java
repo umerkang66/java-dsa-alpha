@@ -1,5 +1,4 @@
 // https://leetcode.com/problems/search-a-2d-matrix-ii
-package arrays_2d;
 
 // USING BINARY SEARCH
 // O(n+m), if m>>n then O(m), if n>>m then O(n)

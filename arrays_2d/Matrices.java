@@ -1,5 +1,3 @@
-package arrays_2d;
-
 import java.util.Arrays;
 import java.util.Scanner;
 
