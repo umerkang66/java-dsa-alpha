@@ -1,3 +1,5 @@
+package recursion.divide_and_conquer;
+
 // see this question notes in SearchInRotatedArr.java in arrays section
 public class SearchInRotatedSortedArr {
   public static void main(String[] args) {

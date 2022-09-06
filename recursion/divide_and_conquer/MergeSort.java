@@ -1,3 +1,5 @@
+package recursion.divide_and_conquer;
+
 import java.util.Arrays;
 
 public class MergeSort {
