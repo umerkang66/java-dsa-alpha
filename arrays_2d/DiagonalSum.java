@@ -14,9 +14,9 @@ public class DiagonalSum {
         { 7, 8, 9 }
     };
     System.out.println(diagonalSum(matrix));
-    System.out.println(diagSum2(matrix));
+    System.out.println(diagonalSum2(matrix));
     System.out.println(diagonalSum(matrix2));
-    System.out.println(diagSum2(matrix2));
+    System.out.println(diagonalSum2(matrix2));
   }
 
   private static int diagonalSum(int[][] matrix) {
@@ -32,24 +32,24 @@ public class DiagonalSum {
       col++;
     }
     // secondary diagonal
-    row = matrix.length - 1;
-    col = 0;
-    while (row >= 0) {
+    row = 0;
+    col = matrix[0].length - 1;
+    while (col >= 0) {
       if (row == col) {
         // when "n" is odd number don't include the single element (center element) that
         // has already being summed
-        row--;
-        col++;
+        row++;
+        col--;
         continue;
       }
       sum += matrix[row][col];
-      row--;
-      col++;
+      row++;
+      col--;
     }
     return sum;
   }
 
-  private static int diagSum2(int[][] matrix) {
+  private static int diagonalSum2(int[][] matrix) {
     int sum = 0;
     for (int i = 0; i < matrix.length; i++) {
       // primary diagonal
