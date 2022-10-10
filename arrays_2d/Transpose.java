@@ -15,6 +15,8 @@ public class Transpose {
 
     for (int row = 0; row < rows; row++) {
       for (int col = 0; col < columns; col++) {
+        // it should be in the matrix[row][col] and transpose[col][row],
+        // because, we are iterating according to the matrix, not transpose
         transpose[col][row] = matrix[row][col];
       }
     }

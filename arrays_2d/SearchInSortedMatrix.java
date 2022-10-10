@@ -31,12 +31,10 @@ public class SearchInSortedMatrix {
     int rowStart = 0;
     int rowEnd = matrix.length - 1;
 
-    int correctRow = -1;
     while (rowStart <= rowEnd) {
       int rowMid = rowStart + (rowEnd - rowStart) / 2;
       if (target >= matrix[rowMid][0] && target <= matrix[rowMid][matrix[0].length - 1]) {
-        correctRow = rowMid;
-        break;
+        return rowMid;
       } else if (target > matrix[rowMid][matrix[0].length - 1]) {
         rowStart = rowMid + 1;
       } else {
@@ -45,7 +43,7 @@ public class SearchInSortedMatrix {
       }
     }
 
-    return correctRow;
+    return -1;
   }
 
   private static boolean binarySearchColumn(int[][] matrix, int correctRow, int target) {

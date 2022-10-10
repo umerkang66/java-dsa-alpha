@@ -21,16 +21,19 @@ public class SearchInSortedRowColMatrix {
     // be top-right or bottom-left, we are choosing top-right
     int row = 0;
     int col = matrix[0].length - 1;
+
     while (row <= matrix.length - 1 && col >= 0) {
-      // if target is bigger move downward, if target is smaller move before
       if (target < matrix[row][col]) {
+        // move left
         col--;
       } else if (target > matrix[row][col]) {
+        // move downward
         row++;
       } else {
         return true;
       }
     }
+
     return false;
   }
 
