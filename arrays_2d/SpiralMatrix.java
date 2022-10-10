@@ -15,6 +15,7 @@ public class SpiralMatrix {
         { 5, 6, 7, 8 },
         { 9, 10, 11, 12 }
     };
+
     ArrayList<Integer> result = spiralMatrix(matrix);
     System.out.println(result);
     ArrayList<Integer> result2 = spiralMatrix(matrix2);
@@ -33,10 +34,12 @@ public class SpiralMatrix {
       for (int j = colStart; j <= colEnd; j++) {
         result.add(matrix[rowStart][j]);
       }
+
       // RIGHT: col is colEnd
       for (int i = rowStart + 1; i <= rowEnd; i++) {
         result.add(matrix[i][colEnd]);
       }
+
       // BOTTOM: row is rowEnd
       for (int j = colEnd - 1; j >= colStart; j--) {
         if (rowStart == rowEnd) {
@@ -44,6 +47,7 @@ public class SpiralMatrix {
         }
         result.add(matrix[rowEnd][j]);
       }
+
       // LEFT: col is colStart
       for (int i = rowEnd - 1; i >= rowStart + 1; i--) {
         if (colStart == colEnd) {
@@ -51,6 +55,7 @@ public class SpiralMatrix {
         }
         result.add(matrix[i][colStart]);
       }
+
       rowStart++;
       colStart++;
       rowEnd--;

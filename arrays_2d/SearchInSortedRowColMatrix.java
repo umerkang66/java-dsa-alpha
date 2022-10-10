@@ -22,6 +22,7 @@ public class SearchInSortedRowColMatrix {
     int row = 0;
     int col = matrix[0].length - 1;
 
+    // if one of the row, or col reach the end, stop the loop
     while (row <= matrix.length - 1 && col >= 0) {
       if (target < matrix[row][col]) {
         // move left
