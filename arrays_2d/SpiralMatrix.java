@@ -1,6 +1,5 @@
-// https://leetcode.com/problems/spiral-matrix/
-
 import java.util.ArrayList;
+// https://leetcode.com/problems/spiral-matrix/
 
 public class SpiralMatrix {
   public static void main(String[] args) {
@@ -43,6 +42,8 @@ public class SpiralMatrix {
       // BOTTOM: row is rowEnd
       for (int j = colEnd - 1; j >= colStart; j--) {
         if (rowStart == rowEnd) {
+          // when covering the bottom, if we have only one row, so don't add it because,
+          // it has already been added in the TOP section
           break;
         }
         result.add(matrix[rowEnd][j]);
@@ -51,6 +52,8 @@ public class SpiralMatrix {
       // LEFT: col is colStart
       for (int i = rowEnd - 1; i >= rowStart + 1; i--) {
         if (colStart == colEnd) {
+          // while covering the left column, if there are only one column, don't add it
+          // because it has been already added in RIGHT section
           break;
         }
         result.add(matrix[i][colStart]);
