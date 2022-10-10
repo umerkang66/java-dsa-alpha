@@ -12,11 +12,13 @@ public class Transpose {
     int rows = matrix.length;
     int columns = matrix[0].length;
     int[][] transpose = new int[columns][rows];
-    for (int i = 0; i < matrix.length; i++) {
-      for (int j = 0; j < matrix[0].length; j++) {
-        transpose[j][i] = matrix[i][j];
+
+    for (int row = 0; row < rows; row++) {
+      for (int col = 0; col < columns; col++) {
+        transpose[col][row] = matrix[row][col];
       }
     }
+
     return transpose;
   }
 
