@@ -5,6 +5,7 @@ public class SearchInRotatedArr {
   public static void main(String[] args) {
     int[] nums = { 4, 5, 6, 7, 0, 1, 2 };
     System.out.println(searchInRotatedArr(nums, 0));
+    System.out.println(searchInRotatedArr2(nums, 0));
   }
 
   private static int searchInRotatedArr(int[] nums, int target) {
@@ -15,6 +16,17 @@ public class SearchInRotatedArr {
     }
 
     return searchedIndex;
+  }
+
+  private static int searchInRotatedArr2(int[] nums, int target) {
+    int pivot = findPivot(nums);
+    if (target >= nums[0]) {
+      // if target is greater than first element, it means it is in the
+      // left part of pivot, because all the elements after pivot are
+      // smaller than start element
+      return binarySearch(nums, target, 0, pivot);
+    }
+    return binarySearch(nums, target, pivot + 1, nums.length - 1);
   }
 
   private static int findPivot(int[] nums) {
