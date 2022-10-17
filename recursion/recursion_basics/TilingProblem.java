@@ -11,7 +11,7 @@ public class TilingProblem {
   private static int tilingProblem(int n) {
     // box (where tiles are placed) height 2, and tile height is also 2.
     // tile width is always 1
-    if (n <= 1) {
+    if (n == 0 || n == 1) {
       // if all the tiles have been placed. If n has decreased from "n" to 1 (means
       // only one spot available, and in only 1 way a vertical tile can be placed),
       // "n" == 0 (means all the spots have been filled), in both cases
