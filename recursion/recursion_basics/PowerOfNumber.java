@@ -16,6 +16,7 @@ public class PowerOfNumber {
 
   private static int powerOfNumber2(int n, int p) {
     if (p == 1) {
+      // if power is 1, the result is same as "n"
       return n;
     }
     // actually these result would be same, so we optimize it in the next method

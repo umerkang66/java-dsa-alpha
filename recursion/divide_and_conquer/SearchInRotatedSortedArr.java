@@ -25,15 +25,27 @@ public class SearchInRotatedSortedArr {
 
     int mid = start + (end - start) / 2;
     if (mid < end && nums[mid] > nums[mid + 1]) {
+      // if mid==end, mid + 1, is out of context
+      // so don't search
       return mid;
     }
     if (mid > start && nums[mid] < nums[mid - 1]) {
+      // if mid==start, mid - 1, is out of context
+      // so don't search
       return mid - 1;
     }
 
     if (nums[start] > nums[mid]) {
+      // if "start" el is greater than "mid" el,
+      // means the all the elements after "mid"
+      // should also be less than "start", so don't
+      // to search after "mid", search before "mid"
       return findPivot(nums, start, mid - 1);
     } else {
+      // if "start" el is smaller than "mid" el, we
+      // have to find the largest element (pivot),
+      // there is no need to search, before "mid",
+      // search after "mid"
       return findPivot(nums, mid + 1, end);
     }
   }
