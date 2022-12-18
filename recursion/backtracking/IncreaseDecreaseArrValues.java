@@ -7,18 +7,6 @@ public class IncreaseDecreaseArrValues {
     printArr(nums);
   }
 
-  private static void printArr(int[] arr) {
-    StringBuilder ans = new StringBuilder("[");
-    for (int i = 0; i < arr.length; i++) {
-      ans.append(arr[i]);
-      if (i < arr.length - 1) {
-        ans.append(", ");
-      }
-    }
-    ans.append("]");
-    System.out.println(ans);
-  }
-
   private static void increaseDecreaseArrValues(int[] nums, int index) {
     if (index == nums.length) {
       printArr(nums);
@@ -29,5 +17,17 @@ public class IncreaseDecreaseArrValues {
     increaseDecreaseArrValues(nums, index + 1);
     // decrease the every value by 2
     nums[index] = nums[index] - 2;
+  }
+
+  private static void printArr(int[] arr) {
+    StringBuilder ans = new StringBuilder("[");
+    for (int i = 0; i < arr.length; i++) {
+      ans.append(arr[i]);
+      if (i < arr.length - 1) {
+        ans.append(", ");
+      }
+    }
+    ans.append("]");
+    System.out.println(ans);
   }
 }
