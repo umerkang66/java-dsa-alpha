@@ -2,7 +2,7 @@ package recursion.backtracking;
 
 public class NQueens {
   public static void main(String[] args) {
-    int n = 8;
+    int n = 4;
     char[][] board = new char[n][n];
     for (int i = 0; i < board.length; i++) {
       for (int j = 0; j < board[0].length; j++) {
@@ -10,9 +10,12 @@ public class NQueens {
         board[i][j] = 'x';
       }
     }
+
     nQueens(board, 0);
+
     System.out.println("\n");
-    System.out.println(nQueensFirstSolution(board, 0));
+
+    System.out.println(nQueensOnlyFirstSolution(board, 0));
   }
 
   private static void nQueens(char board[][], int row) {
@@ -37,7 +40,7 @@ public class NQueens {
     }
   }
 
-  private static boolean nQueensFirstSolution(char board[][], int row) {
+  private static boolean nQueensOnlyFirstSolution(char board[][], int row) {
     if (row == board.length) {
       printMatrix(board);
       return true;
@@ -45,7 +48,7 @@ public class NQueens {
     for (int j = 0; j < board[0].length; j++) {
       if (isSafe(board, row, j)) {
         board[row][j] = 'Q';
-        if (nQueensFirstSolution(board, row + 1) == true) {
+        if (nQueensOnlyFirstSolution(board, row + 1) == true) {
           // if first solution is found, return true, to the end.
           return true;
         }

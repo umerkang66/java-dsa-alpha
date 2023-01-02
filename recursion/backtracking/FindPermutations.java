@@ -13,8 +13,12 @@ public class FindPermutations {
     }
 
     for (int i = 0; i < str.length(); i++) {
+      char curChar = str.charAt(i);
       String strWithoutCurChar = str.substring(0, i) + str.substring(i + 1);
-      findPermutations(strWithoutCurChar, ans + str.charAt(i));
+
+      // current characters has been removed from string, pass the string, and add the
+      // current char to the ans
+      findPermutations(strWithoutCurChar, ans + curChar);
     }
   }
 }
