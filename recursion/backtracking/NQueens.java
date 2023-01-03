@@ -6,15 +6,14 @@ public class NQueens {
     char[][] board = new char[n][n];
     for (int i = 0; i < board.length; i++) {
       for (int j = 0; j < board[0].length; j++) {
-        // dot is empty
+        // "x" is empty
         board[i][j] = 'x';
       }
     }
 
     nQueens(board, 0);
 
-    System.out.println("\n");
-
+    System.out.println();
     System.out.println(nQueensOnlyFirstSolution(board, 0));
   }
 
@@ -62,19 +61,19 @@ public class NQueens {
   }
 
   private static boolean isSafe(char[][] board, int row, int col) {
-    // vertically
+    // VERTICALLY UP: Decrease the row, column remains the same
     for (int i = row - 1; i >= 0; i--) {
       if (board[i][col] == 'Q') {
         return false;
       }
     }
-    // diagonal left up
+    // DIAGONALLY LEFT UP: Row and column decreases
     for (int i = row - 1, j = col - 1; i >= 0 && j >= 0; i--, j--) {
       if (board[i][j] == 'Q') {
         return false;
       }
     }
-    // diagonal right up
+    // DIAGONALLY RIGHT UP: Row Decreases, column increases
     for (int i = row - 1, j = col + 1; i >= 0 && j < board[0].length; i--, j++) {
       if (board[i][j] == 'Q') {
         return false;
@@ -84,7 +83,7 @@ public class NQueens {
   }
 
   private static void printMatrix(char[][] mat) {
-    System.out.println("--- chess board ---");
+    System.out.println("-- chess board --");
 
     for (int i = 0; i < mat.length; i++) {
       for (int j = 0; j < mat[0].length; j++) {
