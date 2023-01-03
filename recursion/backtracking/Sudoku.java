@@ -21,6 +21,9 @@ public class Sudoku {
 
   private static boolean sudoku(int[][] sudokuBoard, int row, int col) {
     if (row == sudokuBoard.length && col == 0) {
+      // when row is increased, col is reset
+      // this will happen after all the cols have been placed
+      // return true
       return true;
     }
 
@@ -31,6 +34,7 @@ public class Sudoku {
     }
 
     if (sudokuBoard[row][col] != 0) {
+      // if already a number is placed, from default, just move to the next row or col
       return sudoku(sudokuBoard, nextRow, nextCol);
     }
 
