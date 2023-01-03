@@ -19,10 +19,10 @@ public class GridWays {
       // element
       return 0;
     }
-    // moveDown, row should increase, but column should remain the same.
-    int moveDown = gridWays(i + 1, j, rows, cols);
     // moveRight, column should increase, but row should remain the same.
     int moveRight = gridWays(i, j + 1, rows, cols);
-    return moveDown + moveRight;
+    // moveDown, row should increase, but column should remain the same.
+    int moveDown = gridWays(i + 1, j, rows, cols);
+    return moveRight + moveDown;
   }
 }

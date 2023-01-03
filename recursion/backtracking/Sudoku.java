@@ -25,7 +25,7 @@ public class Sudoku {
     }
 
     int nextRow = row, nextCol = col + 1;
-    if (col + 1 == sudokuBoard[0].length) {
+    if (col == sudokuBoard[0].length - 1) {
       nextRow = row + 1;
       nextCol = 0;
     }
