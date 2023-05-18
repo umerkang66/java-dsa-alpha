@@ -8,6 +8,7 @@ public class SearchInRotatedSortedArr {
   }
 
   private static int searchInRotatedSortedArr(int[] nums, int target) {
+    // NOTE: We are taking the largest element as
     int pivot = findPivot(nums, 0, nums.length - 1);
     // apply binary search on the both side of pivot
     int answer = binarySearch(nums, 0, pivot, target);
