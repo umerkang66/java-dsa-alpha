@@ -8,9 +8,11 @@ public class PowerOfNumber {
   }
 
   private static int powerOfNumber(int n, int p) {
+    // if power is 1, return the number itself.
     if (p == 1) {
       return n;
     }
+    // otherwise multiply number power times, with with number itself
     return n * powerOfNumber(n, p - 1);
   }
 
