@@ -87,7 +87,7 @@ public class BasicSorting {
     }
 
     // we have to store till largest index, that is length - 1, so increase the
-    // length by 1
+    // length by 1, because index starts with 0
     int[] countArr = new int[maxNum + 1];
     for (int i = 0; i < nums.length; i++) {
       // count array is created with every element in nums array as index, and
