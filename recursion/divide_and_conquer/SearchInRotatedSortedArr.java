@@ -5,6 +5,7 @@ public class SearchInRotatedSortedArr {
   public static void main(String[] args) {
     int[] nums = { 4, 5, 6, 7, 0, 1, 2 };
     System.out.println(searchInRotatedSortedArr(nums, 1));
+    System.out.println(searchInRotatedSortedArr(nums, 4));
   }
 
   private static int searchInRotatedSortedArr(int[] nums, int target) {
@@ -55,13 +56,17 @@ public class SearchInRotatedSortedArr {
     if (start > end) {
       return -1;
     }
+
     int mid = start + (end - start) / 2;
-    if (target < nums[mid]) {
-      return binarySearch(nums, start, mid - 1, target);
-    } else if (target > nums[mid]) {
-      return binarySearch(nums, mid + 1, end, target);
-    } else {
+
+    if (target == nums[mid]) {
       return mid;
     }
+
+    if (target < nums[mid]) {
+      return binarySearch(nums, start, mid - 1, target);
+    }
+
+    return binarySearch(nums, mid + 1, end, target);
   }
 }
