@@ -2,7 +2,7 @@ package recursion.recursion_basics;
 
 public class FriendsPairingProblem {
   public static void main(String[] args) {
-    System.out.println(friendsPairing(3)); // 4
+    System.out.println(friendsPairing(4)); // 3->4 4->10
   }
 
   private static int friendsPairing(int n) {
@@ -14,13 +14,15 @@ public class FriendsPairingProblem {
       return n;
     }
 
-    // 1 person remain single, then paired the n-1
-    int remainingAfterSingle = friendsPairing(n - 1);
-    // here we paired up the person with other remaining peoples after first
-    // singlePairing, after this 2 persons are already paired up, then paired up the
-    // remaining n-2
-    int remainingAfterDouble = (n - 1) * friendsPairing(n - 2);
+    // 1 person remain single, then remaining will be n - 1, recursively, pair
+    // those n - 1
+    // we have to multiply with 1, because it can negligible we can ignore it
+    int remainSinglePossibilities = 1 * friendsPairing(n - 1);
+    // if that person decides to pair himself with some other, he would have
+    // the (n - 1) persons to pair with, so multiply n - 1 with further recursively
+    // founded results
+    int pairWithSomeOtherPossibilities = (n - 1) * friendsPairing(n - 2);
 
-    return remainingAfterSingle + remainingAfterDouble;
+    return remainSinglePossibilities + pairWithSomeOtherPossibilities;
   }
 }

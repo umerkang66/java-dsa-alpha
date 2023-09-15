@@ -3,7 +3,7 @@ package recursion.recursion_basics;
 
 public class TilingProblem {
   public static void main(String[] args) {
-    System.out.println(tilingProblem(3));
+    System.out.println(tilingProblem(4));
   }
 
   // height is always 2 => m = 2
