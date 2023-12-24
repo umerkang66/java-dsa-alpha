@@ -12,19 +12,33 @@ public class AdvancedPatterns {
     int cols = scanner.nextInt();
 
     hollowRectangle(rows, cols);
+    System.out.println();
     invertedRotatedHalfPyramid(rows);
+    System.out.println();
     halfPyramidWithNums(rows);
+    System.out.println();
     floydTriangle(rows);
+    System.out.println();
     zeroOneTriangle(rows);
+    System.out.println();
     zeroOneTriangleSecondSolution(rows);
+    System.out.println();
     butterflyPattern(rows);
+    System.out.println();
     butterflyPatternSolution2(rows);
+    System.out.println();
     solidRhombus(rows);
+    System.out.println();
     solidRhombusSolution2(rows);
+    System.out.println();
     hollowRhombus(rows);
+    System.out.println();
     hollowRhombusSecondSolution(rows);
+    System.out.println();
     diamondPattern(rows);
+    System.out.println();
     numberPyramid(rows);
+    System.out.println();
     palindromicPattern(rows);
   }
 
