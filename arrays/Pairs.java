@@ -10,6 +10,7 @@ public class Pairs {
     for (int i = 0; i < result.length; i++) {
       System.out.print(Arrays.toString(result[i]));
     }
+    System.out.println();
   }
 
   private static int[][] getPairs(int[] nums) {
